@@ -1,4 +1,4 @@
-package frc.robot;
+package frc.robot.Consatnts;
 
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 
@@ -6,7 +6,6 @@ import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.trajectory.TrapezoidProfile;
-import edu.wpi.first.math.util.Units;
 import frc.lib.util.COTSFalconSwerveConstants;
 import frc.lib.util.SwerveModuleConstants;
 
@@ -131,6 +130,7 @@ public final class Constants {
     }
 
     public static final class AutoConstants { //TODO: The below constants are used in the example auto, and must be tuned to specific robot
+        
         public static final double kMaxSpeedMetersPerSecond = 3;
         public static final double kMaxAccelerationMetersPerSecondSquared = 3;
         public static final double kMaxAngularSpeedRadiansPerSecond = Math.PI;
@@ -144,5 +144,13 @@ public final class Constants {
         public static final TrapezoidProfile.Constraints kThetaControllerConstraints =
             new TrapezoidProfile.Constraints(
                 kMaxAngularSpeedRadiansPerSecond, kMaxAngularSpeedRadiansPerSecondSquared);
+    }
+
+    public static final class IntakeConstants {
+
+        public static final double intakeMaxSpeed = 0.5;
+        public static final int intakeMotorID = 50; // to be changed
+        public static final boolean intakeMotorInvert = false; 
+        public static final NeutralMode intakeNeutralMode = NeutralMode.Brake;
     }
 }
