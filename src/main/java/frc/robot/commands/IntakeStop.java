@@ -5,7 +5,6 @@ import frc.robot.subsystems.Intake;
 
 public class IntakeStop extends CommandBase{
     private final Intake m_intakeSubsystem;
-    private double m_intakeSpeed;
 
     public IntakeStop(Intake intake) {
         this.m_intakeSubsystem = intake;
@@ -20,7 +19,7 @@ public class IntakeStop extends CommandBase{
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_intakeSubsystem.intake(m_intakeSpeed);
+    m_intakeSubsystem.stop();
   }
 
   // Called once the command ends or is interrupted.
