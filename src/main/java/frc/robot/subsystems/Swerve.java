@@ -28,10 +28,10 @@ public class Swerve extends SubsystemBase {
         zeroGyro();
 
         mSwerveMods = new SwerveModule[] {
-            new SwerveModule(2, Constants.Swerve.Mod0.constants),
-            new SwerveModule(3, Constants.Swerve.Mod1.constants),
-            new SwerveModule(1, Constants.Swerve.Mod2.constants),
-            new SwerveModule(0, Constants.Swerve.Mod3.constants)
+            new SwerveModule(0, Constants.Swerve.Mod0.constants),
+            new SwerveModule(1, Constants.Swerve.Mod1.constants),
+            new SwerveModule(2, Constants.Swerve.Mod2.constants),
+            new SwerveModule(3, Constants.Swerve.Mod3.constants)
         };
 
         /* By pausing init for a second before setting module offsets, we avoid a bug with inverting motors.
@@ -77,6 +77,10 @@ public class Swerve extends SubsystemBase {
         return swerveOdometry.getPoseMeters();
     }
 
+    public void resetPose() {
+        swerveOdometry.resetPosition(getYaw(), getModulePositions(), getPose());
+    }
+
     public void resetOdometry(Pose2d pose) {
         swerveOdometry.resetPosition(getYaw(), getModulePositions(), pose);
     }
@@ -98,7 +102,7 @@ public class Swerve extends SubsystemBase {
     }
 
     public void zeroGyro(){
-        gyro.setYaw(0);
+        gyro.setYaw(0); // i dont know why but the gyro is being weird
     }
 
     public Rotation2d getYaw() {

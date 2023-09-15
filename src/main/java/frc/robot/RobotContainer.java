@@ -48,7 +48,7 @@ public class RobotContainer {
                 () -> -driver.getRawAxis(translationAxis), 
                 () -> -driver.getRawAxis(strafeAxis), 
                 () -> -driver.getRawAxis(rotationAxis), 
-                () -> (driver.getRawAxis(robotCentricButton) > 0.3)
+                () -> driver.getRawAxis(robotCentricButton) > 0.3
             )
         );
         // s_Swerve.setDefaultCommand(
@@ -89,6 +89,6 @@ public class RobotContainer {
      */
     public Command getAutonomousCommand() {
         // An ExampleCommand will run in autonomous
-        return new exampleAuto(s_Swerve);
+        return new exampleAuto(s_Swerve, s_Intake);
     }
 }
