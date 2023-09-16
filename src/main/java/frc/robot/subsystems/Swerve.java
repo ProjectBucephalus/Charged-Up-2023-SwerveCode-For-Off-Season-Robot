@@ -102,7 +102,7 @@ public class Swerve extends SubsystemBase {
     }
 
     public void zeroGyro(){
-        gyro.setYaw(0); // i dont know why but the gyro is being weird
+        gyro.setYaw(0); 
     }
 
     public Rotation2d getYaw() {
